@@ -1,11 +1,34 @@
 import java.util.Scanner;
 
 public class Main {
+
     public static void main(String[] args) {
 
+
+        Scanner s = new Scanner(System.in);
+        while(true) {
+            playOnce(s);
+
+            System.out.println("Wanna play again? (y/n)");
+            String playResponse = s.next();
+
+            if(playResponse.equalsIgnoreCase("y")) {
+                System.out.println("----------------------------");
+
+            } else {
+                System.out.println("Thank you for playing!");
+                return;
+            }
+        }
+
+
+    }
+
+
+    public static void playOnce(Scanner s) {
         // 1 - 100
         int atsakymas = (int) (Math.random() * 100) + 1;
-        Scanner s = new Scanner(System.in);
+
 
         System.out.println("Hello! Welcome to a guessing game.\nGuess the number and you win :))\nHow many tries do you need?");
         int limitas = s.nextInt();
@@ -19,8 +42,6 @@ public class Main {
 
             int spejimas = s.nextInt();
             spejimuKiekis++;
-//            spejimuKiekis += 1;
-//            spejimuKiekis = spejimuKiekis + 1;
 
             if(spejimas > atsakymas) {
                 System.out.println("Guess less");
@@ -32,26 +53,9 @@ public class Main {
             }
 
         }
-
         System.out.println("You lose!");
-
-
-        // 1. perskaitom naudotojo spejima
-        // 2. jeigu spejimas didesnis nei turi buti
-        //      rasom "spek mazesni skaiciu"
-        //      else rasom "spek didesni skaiciu"
-        //         griztam i pirma zingsni
-
-        // 3. jei nei didesnis, nei mazesnis - naudotojas pataike!
-        // 4. parasom sekmes zinute
-
-
-
-        // BONUS:
-        // 1. isijungus programa, naudotojas lazinasi is kiek kartu
-        //      atspes skaiciu
-        // 2. jeigu naudotojas virsija spejimu kieki, uzdarom programa
-        // 3. rasom pralaimejai
-        // 4. pries kiekviena spejima rasom kiek liko bandymu
     }
+
+
+
 }
